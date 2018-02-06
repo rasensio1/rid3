@@ -5,6 +5,9 @@
 out
 *.*~
 
+*.swo
+*.swp
+
 
 pom.xml
 pom.xml.asc

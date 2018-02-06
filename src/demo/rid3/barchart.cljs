@@ -167,6 +167,8 @@
                               8))))))
 
 
+(defn prepare-dst [ratom]
+  (-> @ratom (get :dataset) clj->js))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Viz
@@ -186,12 +188,14 @@
         :class      "bar"
         :tag        "rect"
         :did-mount  bar-did-mount
+        :prepare-dataset prepare-dst
         :did-update bar-did-update}
 
        {:kind       :elem-with-data
         :class      "bar-label"
         :tag        "text"
         :did-mount  bar-label-did-mount
+        :prepare-dataset prepare-dst
         :did-update bar-label-did-update}]}
      ]}])
 
