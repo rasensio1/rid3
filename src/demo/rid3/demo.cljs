@@ -23,20 +23,20 @@
    {
     :app {:page-width nil}
 
-    :arc-tween {}
+    ; :arc-tween {}
     :barchart  {:dataset barchart/dataset}
-    :barchart2 {:dataset barchart2/dataset}
-    :barchart3 {:dataset barchart3/dataset}
-    :pie       {:dataset pie/dataset}
+    ; :barchart2 {:dataset barchart2/dataset}
+    ; :barchart3 {:dataset barchart3/dataset}
+    ; :pie       {:dataset pie/dataset}
     }))
 
 (def app-cursor (reagent/cursor app-state [:app]))
 
-(def arc-tween-cursor (reagent/cursor app-state [:arc-tween]))
+; (def arc-tween-cursor (reagent/cursor app-state [:arc-tween]))
 (def barchart-cursor (reagent/cursor app-state [:barchart]))
-(def barchart2-cursor (reagent/cursor app-state [:barchart2]))
-(def barchart3-cursor (reagent/cursor app-state [:barchart3]))
-(def pie-cursor (reagent/cursor app-state [:pie]))
+; (def barchart2-cursor (reagent/cursor app-state [:barchart2]))
+; (def barchart3-cursor (reagent/cursor app-state [:barchart3]))
+; (def pie-cursor (reagent/cursor app-state [:pie]))
 
 (defn viz [ratom]
   [d3/viz
@@ -76,11 +76,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Page
 
-(def cursors [arc-tween-cursor
+(def cursors [
+              ; arc-tween-cursor
               barchart-cursor
-              barchart2-cursor
-              barchart3-cursor
-              pie-cursor])
+              ; barchart2-cursor
+              ; barchart3-cursor
+              ; pie-cursor
+              
+              ])
 
 (defn set-viz-page-widths! [page-width]
   (doseq [c cursors]
@@ -105,10 +108,11 @@
      (when page-width
        [:section
         [barchart/example barchart-cursor]
-        [barchart2/example barchart2-cursor]
-        [barchart3/example barchart3-cursor]
-        [pie/example pie-cursor]
-        [arc-tween/example arc-tween-cursor]])
+        ; [barchart2/example barchart2-cursor]
+        ; [barchart3/example barchart3-cursor]
+        ; [pie/example pie-cursor]
+        ; [arc-tween/example arc-tween-cursor]
+        ])
 
      [:div
       {:style {:margin-top "200px"}}]
